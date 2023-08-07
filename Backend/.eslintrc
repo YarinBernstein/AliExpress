@@ -1,0 +1,55 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint",
+      "prettier"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier"
+    ],
+    "rules": {
+      "@typescript-eslint/explicit-module-boundary-types": "off", // Disable explicit module boundary types
+      "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }], // Allow unused variables with a leading underscore
+      "@typescript-eslint/no-explicit-any": "warn", // Warn about explicit use of 'any' type
+        
+      // New rules for backend development
+      "no-console": "warn", // Warn about using console.log
+      "prefer-const": "warn", // Prefer using 'const' for variables
+      "global-require": "error", // Disallow require() outside of the top-level module scope
+      "no-var": "error", // Disallow using 'var' for variable declaration
+      "no-use-before-define": ["error", { "functions": false, "classes": true, "variables": true }], // Disallow using variables before they are defined
+
+      // Adjust this rule based on your project's naming conventions
+      "@typescript-eslint/naming-convention": 
+      [
+        "error",
+        {
+            "selector": "default",
+            "format": ["camelCase"]
+        },
+        {
+            "selector": "variable",
+            "format": ["camelCase", "UPPER_CASE"]
+        },
+        {
+            "selector": "parameter",
+            "format": ["camelCase"],
+            "leadingUnderscore": "allow"
+        },
+        {
+            "selector": "memberLike",
+            "modifiers": ["private"],
+            "format": ["camelCase"],
+            "leadingUnderscore": "require"
+        },
+        {
+            "selector": "typeLike",
+            "format": ["PascalCase"]
+        }
+      ] 
+    }
+}
