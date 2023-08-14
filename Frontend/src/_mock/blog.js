@@ -29,10 +29,10 @@ const POST_TITLES = [
   'How to Animate a SVG with border-image',
 ];
 
-const posts = [...Array(23)].map((_, index) => ({
+const posts = [...Array(3)].map((_, index) => ({
   id: faker.datatype.uuid(),
-  cover: `/assets/images/covers/cover_${index + 1}.jpg`,
-  title: POST_TITLES[index + 1],
+  cover: `/assets/images/covers/idf-air-force-uniform.jpg`,
+  title: "מדי א - סט מלא חיל האוויר",
   createdAt: faker.date.past(),
   view: faker.datatype.number(),
   comment: faker.datatype.number(),
@@ -40,7 +40,7 @@ const posts = [...Array(23)].map((_, index) => ({
   favorite: faker.datatype.number(),
   author: {
     name: faker.name.fullName(),
-    avatarUrl: `/assets/images/avatars/avatar_${index + 1}.jpg`,
+    avatarUrl: `/assets/images/covers/Bacha_21_Heifa.png`,
   },
 }));
 
