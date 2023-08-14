@@ -21,7 +21,11 @@
     "requireConfigFile": false,
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
-      "impliedStrict": true
+      "impliedStrict": true,
+      "jsx": true   // Add this line to enable JSX parsing
+    },
+    "babelOptions": {  // Add this section to provide Babel options
+      "plugins": ["@babel/plugin-syntax-jsx"]  // Enable JSX syntax
     }
   },
   "rules": {
