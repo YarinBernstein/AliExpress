@@ -49,6 +49,12 @@
         {
             "selector": "typeLike",
             "format": ["PascalCase"]
+        },
+        {
+          // Add this rule for model names
+          "selector": "variable",
+          "types": ["function"],
+          "format": ["PascalCase"]
         }
       ] 
     }
