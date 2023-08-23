@@ -3,7 +3,7 @@ import mongoose, { Document, Schema, Model } from 'mongoose';
 interface IUser extends Document {
 	personalNumber: number;
 	fullName: string;
-	email: string;
+	//email: string;
 	password: string;
 	flight?: string;
 	phoneNumber?: string;
@@ -14,7 +14,7 @@ interface IUser extends Document {
 const userSchema: Schema<IUser> = new mongoose.Schema({
 	personalNumber: { type: Number, required: true, unique: true },
 	fullName: { type: String, required: true },
-	email: { type: String, unique: true, required: true },
+	//email: { type: String, unique: true, required: true },
 	password: { type: String, required: true },
 	flight: { type: mongoose.Schema.Types.ObjectId, ref: 'Flight' },
 	phoneNumber: { type: String },

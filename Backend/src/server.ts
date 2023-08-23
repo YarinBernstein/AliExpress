@@ -1,5 +1,5 @@
 // make an express app in typescript 
-import express from 'express'
+/*import express from 'express'
 import { Request, Response } from 'express'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
@@ -18,25 +18,7 @@ app.get('/', (req: Request, res: Response) => {
 // make a listener
 app.listen(3000, () => {
     console.log('Example app listening on port 3000!')
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});*/
 
 /*
 const mongoose = require('mongoose')

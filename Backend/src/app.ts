@@ -31,7 +31,7 @@ module.exports = app
 */
 
 
-import express from 'express';
+/*import express from 'express';
 //import morgan from 'morgan';
 import dotenv from 'dotenv';
 import cors from 'cors';
@@ -58,4 +58,4 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   globalErrorHandler(err, req, res, next);
 });
 
-export default app;
+export default app;*/
