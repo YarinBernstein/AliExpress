@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import { alpha, styled } from '@mui/material/styles';
 import { Box, Link, Card, Grid, Avatar, Typography, CardContent } from '@mui/material';
 // utils
-import { fDate } from '../../../utils/formatTime';
-import { fShortenNumber } from '../../../utils/formatNumber';
-//
-import SvgColor from '../../../components/svg-color';
-import Iconify from '../../../components/iconify';
+
 
 // ----------------------------------------------------------------------
 
@@ -33,13 +29,6 @@ const StyledAvatar = styled(Avatar)(({ theme }) => ({
   bottom: theme.spacing(-2),
 }));
 
-const StyledInfo = styled('div')(({ theme }) => ({
-  display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent: 'center',
-  marginTop: theme.spacing(1),
-  color: theme.palette.text.disabled,
-}));
 
 const StyledCover = styled('img')({
   top: 0,
@@ -51,12 +40,9 @@ const StyledCover = styled('img')({
 
 // ----------------------------------------------------------------------
 
-BlogPostCard.propTypes = {
-  post: PropTypes.object.isRequired,
-  index: PropTypes.number,
-};
 
-export default function BlogPostCard({ post, index }) {
+
+export default function Product({ post, index }) {
   const { cover, title, view, comment, share, author, createdAt, baseName } = post;
 
   const POST_INFO = [
@@ -82,25 +68,9 @@ export default function BlogPostCard({ post, index }) {
           <Typography variant="subtitle2" textAlign={'center'} fontFamily={'inherit'} >
             {baseName}
           </Typography>
-          <StyledTitle color="inherit" variant="subtitle1" underline="hover" textAlign={'center'} href='/product?a1234'  >
+          <StyledTitle color="inherit" variant="subtitle1" underline="hover" textAlign={'center'}>
             {title}
           </StyledTitle>
-
-          <StyledInfo>
-            {POST_INFO.map((info, index) => (
-              <Box
-                key={index}
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  ml: index === 0 ? 0 : 1.5,
-                }}
-              >
-                <Iconify icon={info.icon} sx={{ width: 16, height: 16, mr: 0.5 }} />
-                <Typography variant="caption">{fShortenNumber(info.number)}</Typography>
-              </Box>
-            ))}
-          </StyledInfo>
         </CardContent>
       </Card>
     </Grid>
