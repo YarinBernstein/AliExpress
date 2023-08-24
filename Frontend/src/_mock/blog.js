@@ -31,6 +31,7 @@ const POST_TITLES = [
 
 const posts = [...Array(3)].map((_, index) => ({
   id: faker.datatype.uuid(),
+  baseName : "הטכני חיל האוויר",
   cover: `/assets/images/covers/idf-air-force-uniform.jpg`,
   title: "מדי א - סט מלא חיל האוויר",
   createdAt: faker.date.past(),
