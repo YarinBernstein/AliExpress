@@ -17,15 +17,23 @@ export default function LoginForm() {
     navigate('/dashboard', { replace: true });
   };
 
+  
   return (
     <>
-      <Stack spacing={3}>
-        <TextField name="email" label="Email address" />
+      <Stack sx alignItems="center" justifyContent="space-between" spacing={3}>
+        <TextField
+          name="personal number"
+          label="Personal Number"
+          fullWidth
+          sx={{ width: '100%' }} // Set the width to 100%
+        />
 
         <TextField
           name="password"
           label="Password"
           type={showPassword ? 'text' : 'password'}
+          fullWidth
+          sx={{ width: '100%' }} // Set the width to 100%
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
@@ -36,18 +44,19 @@ export default function LoginForm() {
             ),
           }}
         />
-      </Stack>
-
-      <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
-        <Checkbox name="remember" label="Remember me" />
-        <Link variant="subtitle2" underline="hover">
-          Forgot password?
-        </Link>
-      </Stack>
-
-      <LoadingButton fullWidth size="large" type="submit" variant="contained" onClick={handleClick}>
+        <LoadingButton
+        fullWidth
+        size="large"
+        type="submit"
+        variant="contained"
+        onClick={handleClick}
+        sx={{ width: '100%' }} // Set the width to 100%
+      >
         Login
       </LoadingButton>
+      </Stack>
+
+      
     </>
   );
 }
