@@ -15,6 +15,7 @@
       "@typescript-eslint/explicit-module-boundary-types": "off", // Disable explicit module boundary types
       "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }], // Allow unused variables with a leading underscore
       "@typescript-eslint/no-explicit-any": "warn", // Warn about explicit use of 'any' type
+      "@typescript-eslint/no-inferrable-types": "off", // Disable warning about inferring types from literals
         
       // New rules for backend development
       "no-console": "warn", // Warn about using console.log
@@ -33,7 +34,7 @@
         },
         {
             "selector": "variable",
-            "format": ["camelCase", "UPPER_CASE"]
+            "format": ["camelCase", "UPPER_CASE", "PascalCase"]
         },
         {
             "selector": "parameter",
@@ -45,6 +46,10 @@
             "modifiers": ["private"],
             "format": ["camelCase"],
             "leadingUnderscore": "require"
+        },
+        {
+          "selector": "enumMember",
+          "format": ["PascalCase", "UPPER_CASE"]
         },
         {
             "selector": "typeLike",
