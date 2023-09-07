@@ -7,12 +7,12 @@ import { Grid, Container, Typography } from '@mui/material';
 import Iconify from '../components/iconify';
 // sections
 import {
-  AppTasks,
-  AppNewsUpdate,
-  AppOrderTimeline,
+  // AppTasks,
+  // AppNewsUpdate,
+  // AppOrderTimeline,
   AppCurrentVisits,
   AppWebsiteVisits,
-  AppTrafficBySite,
+  // AppTrafficBySite,
   AppWidgetSummary,
   AppCurrentSubject,
   AppConversionRates,
@@ -36,19 +36,19 @@ export default function DashboardAppPage() {
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Weekly Sales" total={714000} icon={'ant-design:android-filled'} />
+            <AppWidgetSummary title="מספר הזמנות שבוצעו" total={714000} icon={'fluent:box-16-filled'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="New Users" total={1352831} color="info" icon={'ant-design:apple-filled'} />
+            <AppWidgetSummary title="משתמשים קיימים" total={4534} color="info" icon={'majesticons:user'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Item Orders" total={1723315} color="warning" icon={'ant-design:windows-filled'} />
+            <AppWidgetSummary title="מספר מוצרים" total={1} color="warning" icon={'ion:shirt'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Bug Reports" total={234} color="error" icon={'ant-design:bug-filled'} />
+            <AppWidgetSummary title="הזמנות שבוצעו היום" total={234} color="error" icon={'icon-park-solid:transaction-order'} />
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
@@ -56,36 +56,37 @@ export default function DashboardAppPage() {
               title="Website Visits"
               subheader="(+43%) than last year"
               chartLabels={[
-                '01/01/2003',
-                '02/01/2003',
-                '03/01/2003',
-                '04/01/2003',
-                '05/01/2003',
-                '06/01/2003',
-                '07/01/2003',
-                '08/01/2003',
-                '09/01/2003',
-                '10/01/2003',
-                '11/01/2003',
+                '01/01/2023',
+                '02/01/2023',
+                '03/01/2023',
+                '04/01/2023',
+                '05/01/2023',
+                '06/01/2023',
+                '07/01/2023',
+                '08/01/2023',
+                '09/01/2023',
+                '10/01/2023',
+                '11/01/2023',
+                '12/01/2023',
               ]}
               chartData={[
                 {
-                  name: 'Team A',
+                  name: 'הזמנות',
                   type: 'column',
                   fill: 'solid',
-                  data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
+                  data: [74, 80, 77, 97, 67, 78, 85, 93, 115, 63, 82, 12],
                 },
                 {
-                  name: 'Team B',
+                  name: 'הזמנות שאושרו',
                   type: 'area',
                   fill: 'gradient',
-                  data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],
+                  data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43, 7],
                 },
                 {
-                  name: 'Team C',
+                  name: 'הזמנות שסורבו',
                   type: 'line',
                   fill: 'solid',
-                  data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
+                  data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39, 5],
                 },
               ]}
             />
@@ -93,12 +94,12 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={4}>
             <AppCurrentVisits
-              title="Current Visits"
+              title="הזמנות על פי גפים"
               chartData={[
-                { label: 'America', value: 4344 },
-                { label: 'Asia', value: 5435 },
-                { label: 'Europe', value: 1443 },
-                { label: 'Africa', value: 4443 },
+                { label: 'קרב א', value: 4344 },
+                { label: 'הנדסת מערכות', value: 5435 },
+                { label: 'קרב ב', value: 1443 },
+                { label: 'לה"ב', value: 4443 },
               ]}
               chartColors={[
                 theme.palette.primary.main,
@@ -111,19 +112,19 @@ export default function DashboardAppPage() {
 
           <Grid item xs={12} md={6} lg={8}>
             <AppConversionRates
-              title="Conversion Rates"
+              title="הזמנות מוצרים"
               subheader="(+43%) than last year"
               chartData={[
-                { label: 'Italy', value: 400 },
-                { label: 'Japan', value: 430 },
-                { label: 'China', value: 448 },
-                { label: 'Canada', value: 470 },
-                { label: 'France', value: 540 },
-                { label: 'Germany', value: 580 },
-                { label: 'South Korea', value: 690 },
-                { label: 'Netherlands', value: 1100 },
-                { label: 'United States', value: 1200 },
-                { label: 'United Kingdom', value: 1380 },
+                { label: 'חולצה מדי א', value: 400 },
+                { label: 'מכנס מדי א', value: 430 },
+                { label: 'חולצה מדי ב', value: 448 },
+                { label: 'מכנס מדי ב', value: 470 },
+                { label: 'חולצה סרבל', value: 540 },
+                { label: 'מכנס סרבל', value: 580 },
+                { label: 'חגורה', value: 690 },
+                { label: 'כומתה', value: 1100 },
+                { label: 'סיכה', value: 1200 },
+                { label: 'נעליים לדור', value: 1380 },
               ]}
             />
           </Grid>
@@ -141,7 +142,7 @@ export default function DashboardAppPage() {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={8}>
+          {/* <Grid item xs={12} md={6} lg={8}>
             <AppNewsUpdate
               title="News Update"
               list={[...Array(5)].map((_, index) => ({
@@ -211,7 +212,7 @@ export default function DashboardAppPage() {
                 { id: '5', label: 'Sprint Showcase' },
               ]}
             />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Container>
     </>

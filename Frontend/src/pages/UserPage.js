@@ -34,11 +34,11 @@ import USERLIST from '../_mock/user';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-  { id: 'name', label: 'Name', alignRight: false },
-  { id: 'company', label: 'Company', alignRight: false },
-  { id: 'role', label: 'Role', alignRight: false },
-  { id: 'isVerified', label: 'Verified', alignRight: false },
-  { id: 'status', label: 'Status', alignRight: false },
+  { id: 'personal number', label: 'מספר אישי', alignRight: false },
+  { id: 'name', label: 'שם', alignRight: false },
+  { id: 'product', label: 'פרטי הזמנה', alignRight: false },
+  { id: 'status', label: 'סטטוס הזמנה', alignRight: false },
+  { id: 'order number', label: 'מספר הזמנה', alignRight: false },
   { id: '' },
 ];
 
@@ -179,7 +179,7 @@ export default function UserPage() {
                 />
                 <TableBody>
                   {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    const { id, name, role, status, company, avatarUrl, isVerified } = row;
+                    const { id, personalNumber, name, orderNumber, status, avatarUrl, products } = row;
                     const selectedUser = selected.indexOf(name) !== -1;
 
                     return (
@@ -192,20 +192,21 @@ export default function UserPage() {
                           <Stack direction="row" alignItems="center" spacing={2}>
                             <Avatar alt={name} src={avatarUrl} />
                             <Typography variant="subtitle2" noWrap>
-                              {name}
+                              {personalNumber}
                             </Typography>
                           </Stack>
                         </TableCell>
 
-                        <TableCell align="left">{company}</TableCell>
+                        <TableCell align="left">{name}</TableCell>
 
-                        <TableCell align="left">{role}</TableCell>
+                        <TableCell align="left">{products}</TableCell>
 
-                        <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell>
 
                         <TableCell align="left">
-                          <Label color={(status === 'banned' && 'error') || 'success'}>{sentenceCase(status)}</Label>
+                          <Label color={(status === 'מסורב' && 'error') || (status === 'מחכה לאישור' && 'warning') || 'success'}>{status}</Label>
                         </TableCell>
+
+                        <TableCell align="left">{orderNumber}</TableCell>
 
                         <TableCell align="right">
                           <IconButton size="large" color="inherit" onClick={handleOpenMenu}>

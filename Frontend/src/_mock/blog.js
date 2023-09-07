@@ -29,7 +29,7 @@ const POST_TITLES = [
   'How to Animate a SVG with border-image',
 ];
 
-const posts = [...Array(3)].map((_, index) => ({
+const posts = [...Array(7)].map((_, index) => ({
   id: faker.datatype.uuid(),
   baseName : "הטכני חיל האוויר",
   cover: `/assets/images/covers/idf-air-force-uniform.jpg`,

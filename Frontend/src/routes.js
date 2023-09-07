@@ -36,7 +36,7 @@ export default function Router() {
       element : <Signup/>
     },
     {
-      path : "product", 
+      path : "product/:id", 
       element : <Product/>
 
     },

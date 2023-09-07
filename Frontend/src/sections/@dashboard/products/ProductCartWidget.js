@@ -1,9 +1,8 @@
 // @mui
 import { styled } from '@mui/material/styles';
-import { Badge } from '@mui/material';
+import { Badge, Button } from '@mui/material';
 // component
 import Iconify from '../../../components/iconify';
-
 // ----------------------------------------------------------------------
 
 const StyledRoot = styled('div')(({ theme }) => ({
@@ -29,9 +28,13 @@ const StyledRoot = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function CartWidget() {
+export default function CartWidget({ setCartOpen }) {
   return (
-    <StyledRoot>
+    <StyledRoot
+      onClick={() => {
+        setCartOpen(true);
+      }}
+    >
       <Badge showZero badgeContent={0} color="error" max={99}>
         <Iconify icon="eva:shopping-cart-fill" width={24} height={24} />
       </Badge>

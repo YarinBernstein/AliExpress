@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
+import React from 'react';
 // @mui
 import { alpha, styled } from '@mui/material/styles';
-import { Box, Link, Card, Grid, Avatar, Typography, CardContent } from '@mui/material';
+import { Box, Link, Card, Grid, Avatar, Typography, CardContent, Modal } from '@mui/material';
 // utils
 import { fDate } from '../../../utils/formatTime';
 import { fShortenNumber } from '../../../utils/formatNumber';
@@ -56,9 +57,8 @@ BlogPostCard.propTypes = {
   index: PropTypes.number,
 };
 
-export default function BlogPostCard({ post, index }) {
+export default function BlogPostCard({ post, index, setOpen }) {
   const { cover, title, view, comment, share, author, createdAt, baseName } = post;
-
   const POST_INFO = [
     { number: comment, icon: 'mdi:size-s' },
     { number: view, icon: 'mdi:size-m' },
@@ -66,43 +66,48 @@ export default function BlogPostCard({ post, index }) {
   ];
 
   return (
-    <Grid item xs={16} sm={8} md={4}>
-      <Card sx={{ position: 'relative' }}>
-        <StyledCardMedia>
-          <StyledAvatar alt={author.name} src={author.avatarUrl} />
+    <Card sx={{ position: 'relative'  }}>
+      <StyledCardMedia>
+        <StyledAvatar alt={author.name} src={author.avatarUrl} />
 
-          <StyledCover alt={title} src={cover} />
-        </StyledCardMedia>
+        <StyledCover alt={title} src={cover} />
+      </StyledCardMedia>
 
-        <CardContent
-          sx={{
-            pt: 3,
+      <CardContent
+        sx={{
+          pt: 3,
+        }}
+      >
+        <Typography variant="subtitle2" textAlign={'center'} fontFamily={'inherit'}>
+          {baseName}
+        </Typography>
+        <StyledTitle
+          color="inherit"
+          variant="subtitle1"
+          underline="hover"
+          textAlign={'center'}
+          onClick={() => {
+            setOpen(true);
           }}
         >
-          <Typography variant="subtitle2" textAlign={'center'} fontFamily={'inherit'} >
-            {baseName}
-          </Typography>
-          <StyledTitle color="inherit" variant="subtitle1" underline="hover" textAlign={'center'} href='/product?a1234'  >
-            {title}
-          </StyledTitle>
-
-          <StyledInfo>
-            {POST_INFO.map((info, index) => (
-              <Box
-                key={index}
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  ml: index === 0 ? 0 : 1.5,
-                }}
-              >
-                <Iconify icon={info.icon} sx={{ width: 16, height: 16, mr: 0.5 }} />
-                <Typography variant="caption">{fShortenNumber(info.number)}</Typography>
-              </Box>
-            ))}
-          </StyledInfo>
-        </CardContent>
-      </Card>
-    </Grid>
+          {title}
+        </StyledTitle>
+        <StyledInfo>
+          {POST_INFO.map((info, index) => (
+            <Box
+              key={index}
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                ml: index === 0 ? 0 : 1.5,
+              }}
+            >
+              <Iconify icon={info.icon} sx={{ width: 16, height: 16, mr: 0.5 }} />
+              <Typography variant="caption">{fShortenNumber(info.number)}</Typography>
+            </Box>
+          ))}
+        </StyledInfo>
+      </CardContent>
+    </Card>
   );
 }
